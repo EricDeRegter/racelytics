@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Racelytics — Sim Race Telemetry</title>
+    <meta name="description" content="Racelytics helps sim racers improve lap time and consistency with sim race telemetry, racing line maps, setup comparison, and live telemetry.">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0b0d10;
+            --surface: #11151a;
+            --muted: #9aa4b2;
+            --text: #f3f6fa;
+            --line: #1e252d;
+            --accent: #50b4ff;
+            --max: 1040px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top, #121822 0%, var(--bg) 45%);
+            color: var(--text);
+            line-height: 1.55;
+        }
+
+        .wrap {
+            width: min(var(--max), 92vw);
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 56px 0 32px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 76px;
+            height: 76px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+        }
+
+        h1 {
+            margin: 18px 0 8px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            margin: 0 0 14px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .lead {
+            margin: 0 auto;
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .store {
+            margin-top: 24px;
+            display: inline-block;
+        }
+
+        .store img {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .coming-soon {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        section {
+            padding: 26px 0;
+        }
+
+        .panel {
+            background: color-mix(in srgb, var(--surface) 90%, black 10%);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        li { margin: 8px 0; }
+
+        .shots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .shots img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .platform-tabs input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .tab-labels {
+            display: inline-flex;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 4px;
+            gap: 4px;
+            background: #0c1015;
+            margin-bottom: 16px;
+        }
+
+        .platform-tabs {
+            text-align: center;
+        }
+
+        .platform-tabs .shots {
+            text-align: left;
+        }
+
+        .tab-labels label {
+            padding: 7px 12px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #tab-iphone:checked ~ .tab-labels label[for="tab-iphone"],
+        #tab-ipad:checked ~ .tab-labels label[for="tab-ipad"],
+        #tab-mac:checked ~ .tab-labels label[for="tab-mac"] {
+            background: #1a2330;
+            color: var(--text);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        #tab-iphone:checked ~ .panels .panel-iphone,
+        #tab-ipad:checked ~ .panels .panel-ipad,
+        #tab-mac:checked ~ .panels .panel-mac {
+            display: block;
+        }
+
+        .meta {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 24px;
+            padding: 24px 0 34px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid #2f3944;
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <img class="icon" src="./screenshots/app-icon.png" alt="Racelytics app icon">
+        <h1>Racelytics</h1>
+        <p class="tagline">Turn rivals into teachers.</p>
+        <p class="lead">
+            Get quicker every session with sim race telemetry. Compare your laps, find clean gains in every sector,
+            and build more confidence and consistency.
+        </p>
+        <a class="store" href="https://apps.apple.com/us/app/racelytics-sim-race-telemetry/id6760829090" aria-label="Available on the App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <p class="coming-soon">Coming soon on the App Store.</p>
+    </header>
+
+    <section class="panel">
+        <h2>Why Racelytics</h2>
+        <ul>
+            <li>Improve lap time through clear telemetry analysis</li>
+            <li>Find ideal race lines, braking points, and throttle input</li>
+            <li>Replay your laps exactly as you drove them</li>
+            <li>Make smarter setup decisions for your driving style</li>
+            <li>Gain a stronger edge against friends and rivals</li>
+        </ul>
+    </section>
+
+    <section class="platform-tabs">
+        <input type="radio" name="platform" id="tab-iphone" checked>
+        <input type="radio" name="platform" id="tab-ipad">
+        <input type="radio" name="platform" id="tab-mac">
+
+        <div class="tab-labels" role="tablist" aria-label="Platform screenshots">
+            <label for="tab-iphone" role="tab">iPhone</label>
+            <label for="tab-ipad" role="tab">iPad</label>
+            <label for="tab-mac" role="tab">Mac</label>
+        </div>
+
+        <div class="panels">
+            <div class="tab-panel panel-iphone">
+                <div class="shots">
+                    <img src="./screenshots/iphone-analyse.png" alt="Racelytics telemetry analysis on iPhone">
+                    <img src="./screenshots/iphone-compare-setup.png" alt="Racelytics setup comparison on iPhone">
+                    <img src="./screenshots/iphone-live.png" alt="Racelytics live telemetry on iPhone">
+                </div>
+            </div>
+            <div class="tab-panel panel-ipad">
+                <div class="shots">
+                    <img src="./screenshots/ipad-analyse.png" alt="Racelytics telemetry analysis on iPad">
+                    <img src="./screenshots/ipad-live.png" alt="Racelytics live telemetry on iPad">
+                </div>
+            </div>
+            <div class="tab-panel panel-mac">
+                <div class="shots">
+                    <img src="./screenshots/mac-analyse.png" alt="Racelytics telemetry analysis on Mac">
+                    <img src="./screenshots/mac-racing-line.png" alt="Racelytics racing line map on Mac">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Compatibility</h2>
+        <p class="meta">Works with EA SPORTS F1 23, F1 24, F1 25, and newer telemetry output.</p>
+        <p class="meta">Available on iOS, iPadOS, and macOS.</p>
+    </section>
+
+    <footer>
+        <p>Racelytics is independent and is not affiliated with EA or Formula 1. Trademarks belong to their respective owners.</p>
+        <div class="foot-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms &amp; Conditions</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
